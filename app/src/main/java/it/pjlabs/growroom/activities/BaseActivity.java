@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import it.pjlabs.growroom.GrowRoomApplication;
 import it.pjlabs.growroom.R;
 
 public abstract class BaseActivity extends AppCompatActivity
@@ -30,6 +31,8 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.inject();
+
     }
 
     @Override
@@ -63,6 +66,14 @@ public abstract class BaseActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    protected boolean isNavDrawerOpen() {
+        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START);
+    }
+
+    /**
+     * Inizializzazione dell ActionBar - Toolbar
+     * @return Toolbar se presente nel layout caricato, null altrimenti
+     */
     protected Toolbar getActionBarToolbar() {
         if (mActionBarToolbar == null) {
             mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -127,4 +138,13 @@ public abstract class BaseActivity extends AppCompatActivity
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    protected GrowRoomApplication getMyApplication(){
+        return  (GrowRoomApplication) this.getApplication();
+    }
+
+    /**
+     * Ricorda di effettuare eventuali injection from Dagger
+     */
+    protected abstract void inject();
 }
