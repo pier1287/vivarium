@@ -1,4 +1,29 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext{
+    configuration = [
+            package             : "it.pjlabs.vivarium",
+            buildToolsVersion   : "24.0.3",
+            compileVersion      : 24,
+            minSdk              : 21,
+            targetSdk           : 24,
+            version_code        : 1,
+            version_name        : "0.4",
+    ]
+
+    libraries = [
+            retrofit            : "2.1.0",
+            dagger              : "2.7",
+            supportVersion      : "24.2.1",
+            javax_annotation    : "1.0",
+            butterknife         : "8.4.0",
+            rxandroid           : "1.2.1"
+    ]
+
+    testingLibraries = [
+            junit               : "4.11",
+            espresso            : "2.2.2"
+    ]
+}
 
 buildscript {
     repositories {
@@ -10,6 +35,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.0'
     }
 }
 
@@ -22,3 +48,4 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

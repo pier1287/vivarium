@@ -1,4 +1,4 @@
-package it.pjlabs.growroom;
+package it.pjlabs.vivarium;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("it.pjlabs.growroom", appContext.getPackageName());
+        assertEquals("it.pjlabs.vivarium", appContext.getPackageName());
     }
 }

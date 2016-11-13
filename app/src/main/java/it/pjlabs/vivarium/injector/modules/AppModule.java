@@ -1,4 +1,4 @@
-package it.pjlabs.growroom.injector.modules;
+package it.pjlabs.vivarium.injector.modules;
 
 import android.app.Application;
 

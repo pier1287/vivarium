@@ -1,4 +1,4 @@
-package it.pjlabs.growroom.injector.modules;
+package it.pjlabs.vivarium.injector.modules;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -8,16 +8,16 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import it.pjlabs.growroom.R;
-import it.pjlabs.growroom.data.rest.GrowRoomApiService;
+import it.pjlabs.vivarium.R;
+import it.pjlabs.vivarium.data.rest.VivariumApiService;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -25,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 @Module
-public class GrowRoomApiModule {
+public class VivariumApiModule {
 
 
     @Provides
@@ -60,10 +60,12 @@ public class GrowRoomApiModule {
         return  okHttpClient;
     }
 
+
     @Provides
     @Singleton
-    Retrofit provideGrowRoomRestAdapter (Application application, Gson gson, OkHttpClient okHttpClient){
+    Retrofit provideVivariumRestAdapter (Application application, Gson gson, OkHttpClient okHttpClient){
         Retrofit retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(application.getString(R.string.grow_room_api_base_url))
                 .client(okHttpClient)
@@ -73,8 +75,8 @@ public class GrowRoomApiModule {
 
     @Provides
     @Singleton
-    GrowRoomApiService provideGrowRoomRestApi (Retrofit growRestAdapter){
-        return growRestAdapter.create(GrowRoomApiService.class);
+    VivariumApiService provideVivariumRestApi (Retrofit growRestAdapter){
+        return growRestAdapter.create(VivariumApiService.class);
     }
 
 }

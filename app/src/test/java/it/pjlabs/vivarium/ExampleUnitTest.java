@@ -1,4 +1,4 @@
-package it.pjlabs.growroom;
+package it.pjlabs.vivarium;
 
 import org.junit.Test;
 

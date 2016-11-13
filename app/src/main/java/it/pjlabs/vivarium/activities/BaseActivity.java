@@ -1,11 +1,6 @@
-package it.pjlabs.growroom.activities;
+package it.pjlabs.vivarium.activities;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,8 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import it.pjlabs.growroom.GrowRoomApplication;
-import it.pjlabs.growroom.R;
+import butterknife.ButterKnife;
+import it.pjlabs.vivarium.VivariumApplication;
+import it.pjlabs.vivarium.R;
 
 public abstract class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+        ButterKnife.bind(this);
         getActionBarToolbar();
     }
 
@@ -139,8 +136,8 @@ public abstract class BaseActivity extends AppCompatActivity
         return true;
     }
 
-    protected GrowRoomApplication getMyApplication(){
-        return  (GrowRoomApplication) this.getApplication();
+    protected VivariumApplication getMyApplication(){
+        return  (VivariumApplication) this.getApplication();
     }
 
     /**

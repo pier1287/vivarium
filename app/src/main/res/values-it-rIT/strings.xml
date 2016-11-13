@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GrowRoom</string>
+    <string name="app_name">Vivarium</string>
     <string name="title_activity_base">BaseActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
