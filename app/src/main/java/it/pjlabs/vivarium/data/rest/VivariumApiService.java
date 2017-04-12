@@ -15,10 +15,6 @@ import rx.Observable;
 
 public interface VivariumApiService {
 
-    /**
-     * Get the Users List
-     * @return
-     */
     @GET("users")
     Observable<List<User>> getUsers();
 
