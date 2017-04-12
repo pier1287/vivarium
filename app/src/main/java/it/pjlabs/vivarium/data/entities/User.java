@@ -1,11 +1,8 @@
 package it.pjlabs.vivarium.data.entities;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-@Generated("org.jsonschema2pojo")
 public class User {
 
     @SerializedName("url")

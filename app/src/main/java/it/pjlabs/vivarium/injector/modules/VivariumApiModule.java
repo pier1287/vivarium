@@ -47,6 +47,7 @@ public class VivariumApiModule {
     Gson provideGson(){
         return new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                 .setLenient()
                 .create();
     }
@@ -59,7 +60,6 @@ public class VivariumApiModule {
                 .build();
         return  okHttpClient;
     }
-
 
     @Provides
     @Singleton

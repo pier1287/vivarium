@@ -2,6 +2,7 @@ package it.pjlabs.vivarium.data.rest;
 
 import java.util.List;
 
+import it.pjlabs.vivarium.data.entities.Measurement;
 import it.pjlabs.vivarium.data.entities.User;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -19,4 +20,10 @@ public interface VivariumApiService {
 
     @GET("users/{idUser}/?format=json")
     Observable<User> getUser(@Path("idUser") Long idUser);
+
+    @GET("measurements/temperatures/latest/?format=json")
+    Observable<Measurement> getLatestTemperature();
+
+    @GET("measurements/humidities/latest/?format=json")
+    Observable<Measurement> getLatestHumidity();
 }

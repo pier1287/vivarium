@@ -20,16 +20,25 @@
 
         <include layout="@layout/toolbar_actionbar"/>
 
-        <FrameLayout
-            android:id="@+id/main_content_frag"
+        <android.support.percent.PercentRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            />
+            >
+
+           <FrameLayout
+                android:id="@+id/main_content_frag"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="100%"
+                android:layout_alignParentTop="true"
+                />
+
+
+        </android.support.percent.PercentRelativeLayout>
 
 
         <android.support.design.widget.FloatingActionButton

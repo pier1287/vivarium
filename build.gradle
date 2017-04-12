@@ -16,7 +16,10 @@ ext{
             supportVersion      : "24.2.1",
             javax_annotation    : "1.0",
             butterknife         : "8.4.0",
-            rxandroid           : "1.2.1"
+            rxandroid           : "1.2.1",
+            rxjava              : "1.1.6",
+            mpAndroidCharts     : "v3.0.1",
+            circleProgress      : "1.2.0"
     ]
 
     testingLibraries = [
@@ -30,7 +33,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -42,6 +45,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
